@@ -14,4 +14,10 @@ public interface UserMapper extends BaseMapper<User> {
         queryWrapper.eq("username", username);
         return selectOne(queryWrapper);
     }
+
+    default User findByUserId(String userId){
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId);
+        return selectOne(queryWrapper);
+    }
 }
